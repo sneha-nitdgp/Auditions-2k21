@@ -1,0 +1,254 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <script src="https://use.fontawesome.com/b821712424.js"></script>
+  <style>
+    #clockdiv {
+      font-family: sans-serif;
+      color: #fff;
+      display: inline-block;
+      font-weight: 100;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    #clockdiv>div {
+      padding: 10px;
+      border-radius: 3px;
+      background: #290033;
+      display: inline-block;
+    }
+
+    #clockdiv div>span {
+      padding: 15px;
+      border-radius: 3px;
+      background: #d966ff;
+      display: inline-block;
+    }
+
+    .smalltext {
+      padding-top: 5px;
+      font-size: 16px;
+    }
+
+    .btn-1 {
+      border: none;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .bg {
+      animation: slide 3s ease-in-out infinite alternate;
+      background-image: linear-gradient(-20deg, rgb(23, 34, 182) 50%, #000 50%);
+      bottom: 0;
+      left: -100%;
+      opacity: .5;
+      position: fixed;
+      right: -50%;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bg2 {
+      animation-direction: alternate-reverse;
+      animation-duration: 4s;
+    }
+
+    .bg3 {
+      animation-duration: 5s;
+    }
+
+
+    h1 {
+      font-family: monospace;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(-25%);
+      }
+
+      100% {
+        transform: translateX(25%);
+      }
+    }
+
+    .logo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 27%;
+    }
+
+    .mytext {
+      color: blanchedalmond;
+      text-align: center;
+    }
+
+    .google {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: blanchedalmond;
+    }
+
+    .btn10 {
+      text-align: center;
+      top: 40px;
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      text-transform: uppercase !important;
+      letter-spacing: 2px;
+      color: #fff;
+      cursor: hand;
+      text-align: center;
+      text-transform: capitalize;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden !important;
+      -webkit-transition: all .9s ease-in-out;
+      -moz-transition: all .9s ease-in-out;
+      -o-transition: all .9s ease-in-out;
+      transition: all .9s ease-in-out;
+      background: transparent !important;
+      z-index: 10;
+
+    }
+
+
+    .btn10:hover {
+      border: 1px solid #071982;
+      color: #8880ff !important;
+    }
+
+    .btn10::before {
+      content: '';
+      width: 0%;
+      height: 100%;
+      display: block;
+      background: #000000;
+      position: absolute;
+      -ms-transform: skewX(-20deg);
+      -webkit-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+      left: -10%;
+      opacity: 1;
+      top: 0;
+      z-index: -12;
+      -moz-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      -o-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      -webkit-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
+    }
+
+    .btn10::after {
+      content: '';
+      width: 0%;
+      height: 100%;
+      display: block;
+      background: #ffffff;
+      position: absolute;
+      -ms-transform: skewX(-20deg);
+      -webkit-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+      left: -10%;
+      opacity: 0;
+      top: 0;
+      z-index: -15;
+      -webkit-transition: all .94s cubic-bezier(.2, .95, .57, .99);
+      -moz-transition: all .4s cubic-bezier(.2, .95, .57, .99);
+      -o-transition: all .4s cubic-bezier(.2, .95, .57, .99);
+      transition: all .4s cubic-bezier(.2, .95, .57, .99);
+      box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
+    }
+
+    .btn10:hover::before,
+    .btn1O:hover::before {
+      opacity: 1;
+      width: 116%;
+    }
+
+    .btn10:hover::after,
+    .btn1O:hover::after {
+      opacity: 1;
+      width: 120%;
+    }
+
+    .btn,
+    .btn2,
+    .btn3,
+    .btn4,
+    .btn5,
+    .btn6,
+    .btn7,
+    .btn10 {
+      padding: 15px 100px;
+      margin: 10px 4px;
+      color: rgb(0, 0, 0);
+      font-family: sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      position: relative;
+      text-decoration: none;
+      display: inline-block;
+
+    }
+  </style>
+</head>
+
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <img class="logo" src="{% static 'response/images/favicon.png' %}" alt="">
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+  <h1 class="mytext"><b>SAE NIT-Durgapur Auditions 2021</b></h1> <br>
+  <h3 class="mytext"> SAEINDIA is one of the few professional engineering societies whose membership <br>
+    represents practically every engineering and scientific discipline. </h3>
+
+  <div class="google">
+    <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn10">
+      <span>Login with Google</span>
+      <div class="transition"></div>
+    </a>
+  </div>
+  <br><br><br>
+  <h4 class="mytext">Our Social Media Links:</h4>
+  <i class="fab fa-facebook"></i>
+  <i class="fab fa-instagram"></i>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script>
+
+  </script>
+
+</body>
+
+</html>
