@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    ## My Applications
+    # My Applications
     'accounts',
     'response',
     'administrator',
     'django.contrib.sites',
-    ##Google auth
+    # Google auth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -93,14 +93,14 @@ DATABASES = {
 
 
 AUTHENTICATION_BACKENDS = [
-    
+
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
     'social_core.backends.google.GoogleOAuth2',
-    
+
 ]
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -143,4 +143,5 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '957579748594-bqbjrei7f9omodj5oue1eq34ot8oj9n0.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'iGbrOfVQ5STS3WzcALF3_uk9'
-
+LOGIN_REDIRECT_URL = '/response'
+LOGOUT_REDIRECT_URL = '/'

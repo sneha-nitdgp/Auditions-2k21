@@ -1,13 +1,14 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
+{% block title %}Question{% endblock title %}
 
 {% block content %}
-  <h2>Get Question</h2>
-  <form method="post">
-    {% csrf_token %}
-    <h1>{{question}}</h1>
-    <h2>{{question.text}}</h2>
-    <label for="response">Response</label>
-    <input type="text" name="response">
-    <button type="submit">Submit</button>
-  </form>
+<h2>Get Question</h2>
+<form method="post">
+  {% csrf_token %}
+  <h1>{{question}}</h1>
+  <h2>{{question.text}}</h2>
+  <label for="response">Response</label>
+  <input type="text" name="response">
+  <button type="submit">Submit</button>
+</form>
 {% endblock %}
