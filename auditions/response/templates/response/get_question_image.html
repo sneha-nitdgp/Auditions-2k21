@@ -1,13 +1,30 @@
 {% extends 'base2.html' %}
 
 {% block content %}
-  <h2>Get Question</h2>
+<br><br>
+  <div class="jumbotron rounded jumbotron-fluid bg-dark text-light">
+    <div class="center container">
+      <h1 class="display-4">Question {{question}}</h1>
+      <hr>
+      <img class="img-fluid" src="{{question.image.url}}">
+      <br><br>
+    </div>
+  </div>
+  <br><br>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
   <form method="post">
     {% csrf_token %}
-    <h2>{{question.text}}</h2>
-    <img src="{{question.image.url}}">
-    <label for="response">Response</label>
-    <input type="text" name="response">
-    <button type="submit">Submit</button>
+    <div class="form__group">
+      <input type="text" class="form__input" id="name" placeholder="Type your response here" required=""
+        name="response" />
+    </div>
+    <br>
+    <div class="center">
+      <button class="button1" type="submit">Submit</button>
+    </div>
+
   </form>
+
 {% endblock %}

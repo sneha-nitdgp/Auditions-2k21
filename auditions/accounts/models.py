@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+
+from django.conf import settings
 
 # Create your models here.
 class Profile(models.Model):
@@ -19,5 +19,13 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
 
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+ 
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_profile_for_new_user(sender, created, instance, **kwargs):
+    if created:
+        profile = Profile(user=instance)
+        profile.save()
 
 

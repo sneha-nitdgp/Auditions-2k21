@@ -14,7 +14,7 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def get_question(request):
     user = request.user
-    profile = Profile.objects.get(user = user.username)
+    profile = Profile.objects.get(user = user)
     try:
         question = Question.objects.get(ques_round = profile.curr_round)
     except:

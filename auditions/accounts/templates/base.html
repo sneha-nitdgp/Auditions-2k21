@@ -1,24 +1,346 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounts</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+  <script src="https://use.fontawesome.com/b821712424.js"></script>
+  <style>
+
+ @import url(https://fonts.googleapis.com/css?family=Finger+Paint);
+h1 {
+  cursor: default;
+  margin-top: -70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: block;
+  text-align: center;
+}
+
+h1 span {
+  position: relative;
+  display: inline-block;
+  -webkit-animation: bounce 0.3s ease infinite alternate;
+  font-size: 80px;
+  color:#ffccff;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+    0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+h1 span:nth-child(2) {
+  -webkit-animation-delay: 0.3s;
+}
+
+h1 span:nth-child(3) {
+  -webkit-animation-delay: 0.5s;
+}
+
+h1 span:nth-child(4) {
+  -webkit-animation-delay: 0.7s;
+}
+
+h1 span:nth-child(5) {
+  -webkit-animation-delay: 0.9s;
+}
+
+h1 span:nth-child(6) {
+  -webkit-animation-delay: 0.11;
+}
+
+h1 span:nth-child(7) {
+  -webkit-animation-delay: 0.13s;
+}
+
+h1 span:nth-child(8) {
+  -webkit-animation-delay: 0.3s;
+}
+
+h1 span:nth-child(9) {
+  -webkit-animation-delay: 0.5s;
+}
+
+h1 span:nth-child(10) {
+  -webkit-animation-delay: 0.7;
+}
+
+h1 span:nth-child(11) {
+  -webkit-animation-delay: 0.9s;
+}
+
+h1 span:nth-child(12) {
+  -webkit-animation-delay: 0.11s;
+}
+
+h1 span:nth-child(13) {
+  -webkit-animation-delay: 0.13s;
+}
+
+h1 span:nth-child(14) {
+  -webkit-animation-delay: 0.27s;
+}
+
+/* ANIMATION */
+@-webkit-keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+  
+
+.mytext{
+  
+  
+ text-shadow: 0 0 5px #967479, 0 0 15px ##967479, 0 0 25px #967479,
+    0 0 20px #967479, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
+  color: #967479;
+
+  font-family: "Sacramento", cursive;
+  text-align: center;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
+}
+
+
+
+    .smalltext {
+      padding-top: 5px;
+      font-size: 16px;
+    }
+
+    .btn-1 {
+      border: none;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .bg {
+      animation: slide 3s ease-in-out infinite alternate;
+      background-image: linear-gradient(-20deg, rgb(153, 102, 0) 50%, #000 50%);
+      bottom: 0;
+      left: -100%;
+      opacity: .5;
+      position: fixed;
+      right: -50%;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bg2 {
+      animation-direction: alternate-reverse;
+      animation-duration: 4s;
+    }
+
+    .bg3 {
+      animation-duration: 5s;
+    }
+
+
+    h1 {
+      font-family: monospace;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(-25%);
+      }
+
+      100% {
+        transform: translateX(25%);
+      }
+    }
+
+    .logo {
+    margin-top: 5px;
+    height: 100px;
+    width: 150px;
+    margin-left: 5px;
+  }
+
+
+    .mytext {
+      color: blanchedalmond;
+      text-align: center;
+    }
+
+    .google {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: blanchedalmond;
+    }
+
+    .btn10 {
+      text-align: center;
+      top: 40px;
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      text-transform: uppercase !important;
+      letter-spacing: 2px;
+      color: #fff;
+      cursor: hand;
+      text-align: center;
+      text-transform: capitalize;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden !important;
+      -webkit-transition: all .9s ease-in-out;
+      -moz-transition: all .9s ease-in-out;
+      -o-transition: all .9s ease-in-out;
+      transition: all .9s ease-in-out;
+      background: transparent !important;
+      z-index: 10;
+
+    }
+
+
+    .btn10:hover {
+      border: 1px solid #071982;
+      color: #8880ff !important;
+    }
+
+    .btn10::before {
+      content: '';
+      width: 0%;
+      height: 100%;
+      display: block;
+      background: #000000;
+      position: absolute;
+      -ms-transform: skewX(-20deg);
+      -webkit-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+      left: -10%;
+      opacity: 1;
+      top: 0;
+      z-index: -12;
+      -moz-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      -o-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      -webkit-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
+    }
+
+    .btn10::after {
+      content: '';
+      width: 0%;
+      height: 100%;
+      display: block;
+      background: #ffffff;
+      position: absolute;
+      -ms-transform: skewX(-20deg);
+      -webkit-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+      left: -10%;
+      opacity: 0;
+      top: 0;
+      z-index: -15;
+      -webkit-transition: all .94s cubic-bezier(.2, .95, .57, .99);
+      -moz-transition: all .4s cubic-bezier(.2, .95, .57, .99);
+      -o-transition: all .4s cubic-bezier(.2, .95, .57, .99);
+      transition: all .4s cubic-bezier(.2, .95, .57, .99);
+      box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
+    }
+
+    .btn10:hover::before,
+    .btn1O:hover::before {
+      opacity: 1;
+      width: 116%;
+    }
+
+    .btn10:hover::after,
+    .btn1O:hover::after {
+      opacity: 1;
+      width: 120%;
+    }
+
+    .btn,
+    .btn2,
+    .btn3,
+    .btn4,
+    .btn5,
+    .btn6,
+    .btn7,
+    .btn10 {
+      padding: 15px 100px;
+      margin: 10px 4px;
+      color: rgb(0, 0, 0);
+      font-family: sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      position: relative;
+      text-decoration: none;
+      display: inline-block;
+
+    }
+  </style>
 </head>
 
+
 <body>
-    {% block content%}
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <img class="logo" src="{% static 'response/images/favicon.png' %}" alt="">
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
 
-    {% endblock %}
+  <h1 class="mytext">
+  <h1>
+  <span>S</span>
+  <span>A</span>
+  <span>E</span>
+</br>
+  <span>A</span>
+  <span>U</span>
+  <span>D</span>
+  <span>I</span>
+  <span>T</span>
+  <span>I</span>
+  <span>O</span>
+  <span>N</span>
+  <span>S</span>
+</h1>
+ <br><br><br><br><br>
+  <h3 class="mytext">SAEINDIA is one of the few professional engineering societies whose membership <br>
+    represents practically every engineering and scientific discipline. <br><br>
+   <p> Its members combine their specialized abilities to further advance the research, development, design, manufacture and utilization of vehicles which operate on land and water and in air and space.<br><br>
+  
+  Members receive free registration at SAEINDIA's lecture meetings and exhibits. </p>
+   <p> Be a part of the SAE family by signing up here!</p> </h3>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+{%block content%}
+  
+{% endblock %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script>
+
+  </script>
 
 </body>
 
