@@ -1,259 +1,50 @@
+{% extends 'base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submit - Response</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"></script>
-</head>
-
+{% block title %}Audition{% endblock title %}
+{% block styles %}
 <style>
-  html {
-    height: 100%;
-  }
-
-  body {
-    margin: 0;
-  }
-
-  .bg {
-    animation: slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-20deg, rgb(241, 198, 142) 50%, #000 50%);
-    bottom: 0;
-    left: -100%;
-    opacity: .5;
-    position: fixed;
-    right: -50%;
-    top: 0;
-    z-index: -1;
-  }
-
-  .bg2 {
-    animation-direction: alternate-reverse;
-    animation-duration: 4s;
-  }
-
-  .bg3 {
-    animation-duration: 5s;
-  }
-
-
-  h1 {
-    font-family: monospace;
-  }
-
-  @keyframes slide {
-    0% {
-      transform: translateX(-25%);
-    }
-
-    100% {
-      transform: translateX(25%);
-    }
-  }
-
-  .topright {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-  }
-
-  .side li {
-    display: inline;
-    float: left;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .white {
-    color: #fffafa;
-  }
-
-  .top {
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    top: 10px;
-  }
-
-  a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-  }
-
-  .btn10 {
-    top: 40px;
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    text-transform: uppercase !important;
-    letter-spacing: 2px;
-    color: #000000;
-    background: #000000;
-    cursor: hand;
-    text-align: center;
-    text-transform: capitalize;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 50px;
-    position: relative;
-    overflow: hidden !important;
-    -webkit-transition: all .9s ease-in-out;
-    -moz-transition: all .9s ease-in-out;
-    -o-transition: all .9s ease-in-out;
-    transition: all .9s ease-in-out;
-    background: transparent !important;
-    z-index: 10;
-    margin-left:100px;
-
-  }
-
-
-  .btn10:hover {
-    border: 1px solid #071982;
-    color: #8880ff !important;
-  }
-
-  .btn10::before {
-    content: '';
-    width: 0%;
-    height: 100%;
-    display: block;
-    background: #000000;
-  
-    -ms-transform: skewX(-20deg);
-    -webkit-transform: skewX(-20deg);
-    transform: skewX(-20deg);
-    left: -10%;
-    opacity: 1;
-    top: 0;
-    z-index: -12;
-    -moz-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
-    -o-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
-    -webkit-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
-    transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
-    box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
-  }
-
-  .btn10::after {
-    content: '';
-    width: 0%;
-    height: 100%;
-    display: block;
-    background: #ffffff;
-    position: absolute;
-    -ms-transform: skewX(-20deg);
-    -webkit-transform: skewX(-20deg);
-    transform: skewX(-20deg);
-    left: -10%;
-    opacity: 0;
-    top: 0;
-    z-index: -15;
-    -webkit-transition: all .94s cubic-bezier(.2, .95, .57, .99);
-    -moz-transition: all .4s cubic-bezier(.2, .95, .57, .99);
-    -o-transition: all .4s cubic-bezier(.2, .95, .57, .99);
-    transition: all .4s cubic-bezier(.2, .95, .57, .99);
-    box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
-  }
-
-  .btn10:hover::before,
-  .btn1O:hover::before {
-    opacity: 1;
-    width: 116%;
-  }
-
-  .btn10:hover::after,
-  .btn1O:hover::after {
-    opacity: 1;
-    width: 120%;
-  }
-
-  .btn,
-  .btn2,
-  .btn3,
-  .btn4,
-  .btn5,
-  .btn6,
-  .btn7,
-  .btn10 {
-    padding: 15px 100px;
-    margin: 10px 4px;
-    color: rgb(0, 0, 0);
-    font-family: sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    text-decoration: none;
-    display: inline-block;
-
-  }
-
-  .logo {
-    margin-top: 5px;
-    height: 100px;
-    width: 150px;
-    margin-left: 5px;
+  h1,
+  h3 {
+    color: blanchedalmond
   }
 
   .classOfElements {
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, 0.47);
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-top: 50px;
-    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    top: 20%;
+  }
+
+  .auditionbtn {
+    text-align: center;
+    margin: 0px;
+  }
+
+  @media(max-width:768px) {
+    .classOfElements {
+      top: 0%;
+    }
+
+    .auditionbtn {
+      margin-top: -25%;
+    }
   }
 </style>
+{% endblock styles %}
+{% block content %}
 
-<body>
-  <img class="logo rounded float-left img-fluid" src="{% static 'response/images/favicon.png' %}" alt="">
-  <ul class="side topright">
-    <li class><a href="/logout/">Logout</a></li>
-  
-  </ul>
+<div class="classOfElements jumbotron jumbotron-fluid">
 
-  <div class="bg"></div>
-  <div class="bg bg2"></div>
-  <div class="bg bg3"></div>
-
-  <div class="classOfElements jumbotron jumbotron-fluid">
-
-    <h1>Information</h1>
-    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius debitis quam laboriosam, itaque unde ipsam!
-      Perferendis optio voluptatum sed eveniet esse temporibus beatae quos praesentium, blanditiis doloremque quidem
-      rerum facere laboriosam exercitationem quae est illum. Dignissimos obcaecati illum, debitis recusandae illo beatae
-      aperiam quod magni, soluta fugit quidem nihil veritatis.</h3><br><br><br>
+  <h1>Information</h1>
+  <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius debitis quam laboriosam, itaque unde ipsam!
+    Perferendis optio voluptatum sed eveniet esse temporibus beatae quos praesentium, blanditiis doloremque quidem
+    rerum facere laboriosam exercitationem quae est illum. Dignissimos obcaecati illum, debitis recusandae illo beatae
+    aperiam quod magni, soluta fugit quidem nihil veritatis.</h3><br><br><br>
 
 
-  </div>
-  <a href="/response/get_question/" class="btn10">
+
+  <a href="/response/get_question/" class="btn10 auditionbtn">
     <span><b>START &nbsp;AUDITIONS</b></span>
     <div class="transition"></div>
   </a>
-
-
-  <br>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"></script>
-
-  <script>
-
-  </script>
-</body>
-
-</html>
+</div>
+{% endblock %}
