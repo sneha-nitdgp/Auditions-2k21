@@ -23,7 +23,7 @@ def response_detail(request,id):
         comment_obj = Comment(profile = profile)
         comment_obj.author = request.POST['author']
         comment_obj.comment = request.POST['comment']
-        to_eliminate = request.POST['eliminate']
+        to_eliminate = request.POST.get('eliminate')
         comment_obj.save()
         profile.current_status = 2
         if(to_eliminate):

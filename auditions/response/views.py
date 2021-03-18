@@ -18,7 +18,7 @@ def get_question(request):
     try:
         question = Question.objects.get(ques_round = profile.curr_round)
     except:
-        if(profile.curr_round >= 5):
+        if(profile.curr_round > 37):
             return render(request,'response/end.html')
     if(request.method == 'POST'):
         response = Response(profile = profile)
@@ -28,7 +28,48 @@ def get_question(request):
         profile.curr_round += 1
         profile.save()
         return redirect('get-question')
+    time_data = profile.get_completion_time()
     if(question.question_type == 'N'):
-        return render(request,'response/get_question.html',{'question':question})
+        return render(request,'response/get_question.html',{'question':question,'time':time_data})
     elif(question.question_type == 'I'):
-        return render(request,'response/get_question_image.html',{'question':question})
+        return render(request,'response/get_question_image.html',{'question':question,'time':time_data})
+
+def timer_expired(request):
+    profile = Profile.objects.get(user = request.user) 
+    profile.completed= True
+    profile.save()
+    return render(request,'response/end.html')
+
+def questions(request):
+    user= request.user
+    
+    profile = Profile.objects.get(user = user)
+    
+    question=Question.objects.all()
+    questionlist=[]
+    for i in question:
+        questionlist.append({
+            'round':i.ques_round,
+            'text':i.text,
+            'type':i.question_type,
+            'image':i.image,
+        })
+    if request.method=='POST':
+        answer=request.POST
+    
+        for i in question:
+            #question=Question.objects.get(ques=i.ques_round)
+            responses =Response.objects.create(profile=profile, question=i)
+            responses.response=answer[str(i.ques_round)]
+            responses.save()
+
+        profile.completed = True
+        profile.save()
+        return render(request, 'response/end.html')
+    
+    if profile.completed==True:
+        return render(request,'response/end.html')
+    time_data = profile.get_completion_time()
+    
+    return render(request,'response/q2.html', {'questionlist':questionlist, 'user':user,'time':time_data})
+

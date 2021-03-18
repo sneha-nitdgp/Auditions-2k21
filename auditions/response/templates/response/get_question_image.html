@@ -1,103 +1,318 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Question{% endblock title %}
 {% block styles %}
-<style>
-  h1,
-  h3 {
-    color: blanchedalmond
-  }
-.classOfElements {
-    text-align: center;
-    vertical-align: middle;
-  
-    top: 20%;
-  }
 
-  .auditionbtn {
-    text-align: center;
-    margin: 0px;
-  }
 
-  @media(max-width:768px) {
-    .classOfElements {
-      top: 0%;
-    }
 
-    .auditionbtn {
-      margin-top: -25%;
-    }
-  }
 
-  #response {
-    width: 50%;
-    height: 40px;
-  }
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
 
-  .button1 {
-    background: #0c0c0c;
-    color: #fff;
-    border: none;
-    position: relative;
-    height: 60px;
-    font-size: 1.6em;
-    padding: 0 2em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
-  }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-  .button1:hover {
-    background: #fff;
-    color: #000000;
-  }
+     <style>
+     	@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rubik:wght@300;400&display=swap");
 
-  .button1:before,
-  .button1:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 2px;
-    width: 0;
-    background: #250603;
-    transition: 700ms ease all;
-  }
-
-  .button1:after {
-    right: inherit;
-    top: inherit;
-    left: 0;
-    bottom: 0;
-  }
-
-  .button1:hover:before,
-  .button1:hover:after {
-    width: 100%;
-    transition: 800ms ease all;
-  }
-.qstn{
-  margin-left:100px;
-  margin-right: 100px;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
-</style>
+
+:root {
+    --yellow: #ffd16657;
+    --yellow-2: #f5ab00;
+    --orange: #dc5f2eb6;
+    --orange-2: #dc5f2ec5;
+    --blue: #2254b1;
+    --blue-2: #1d92af;
+    --blue-3: #3ebfe0;
+    --ash: #4a5759;
+}
+
+body::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: Open Sans, sans-serif;
+    line-height: 1.4em;
+    font-weight: 400;
+    color: white;
+      background: url('{% static 'response/images/bg-1-SAE.webp' %}') ;
+}
+
+::placeholder, select{
+    font-size: 1rem;
+    margin: 0.3rem;
+}
+
+p {
+    margin-bottom: 0.3em;
+}
+
+h1 {
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.italic {
+    font-style: italic;
+}
+
+header,
+#survey {
+    width: 85%;
+    max-width: 500px;
+    margin: 1em auto;
+    padding: 1.5em 0.5em;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 0.1em;
+    /* border: 2px solid blue; */
+}
+
+#survey {
+	background: rgba(0,0,0,0.6);
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	border: 2px solid rgb(128, 92, 92);
+    border-radius: 6px;
+}
+
+.form-section {
+    max-width: 90%;
+    margin: 5em auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3em;
+    /* border: 2px dotted blue; */
+}
+
+.form-input {
+    border: unset;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5em;
+    border-radius: 6px;
+    border: none;
+    /* line-height: 1.5em; */
+    /* box-shadow: 0 0 1px rgba(255, 255, 255, 0.95); */
+}
+
+.form-input:hover,
+.form-input:focus {
+    border: 2px solid var(--ash);
+    outline: none;
+}
+
+.color-section,
+.date-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.color-section label,
+.date-section label {
+    max-width: 40%;
+    margin-right: 0.3em;
+    /* border: 2px dotted blue; */
+}
+
+.color-section input,
+.date-section input {
+    max-width: 69%;
+    margin: 0;
+}
+
+textarea {
+    width: 100%;
+}
+
+button {
+  font-size: 1rem;
+    width: 100%;
+    padding: 0.5em;
+    color: white;
+    border: 0;
+    background: #6FDEFF;
+}
+
+/* --------------------------- */
+
+@media (min-width: 768px) {
+    :root{
+        font-size: clamp(16px, 18px, 20px);
+    }
+
+    header,
+    #survey {
+        max-width: 75%;
+    }
+}
+
+@media (min-width: 1000px) {
+    header,
+    #survey {
+      max-width: 900px;
+    }
+}
+
+/* --------------------------- */
+
+
+.msg textarea{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
+}
+
+.msg textarea{
+  height: 50px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #c5ecfd;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c5ecfd;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #c5ecfd;
+}
+
+button {
+    background: #6FDEFF;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+    /*timer styling*/
+
+#demo{
+    align-items: center;
+    justify-content: center;
+    margin-left: 40%;
+    font-size: 250%;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    font-weight: 800;
+}
+@media (max-width: 500px)
+{
+    #demo{
+        font-size: 200%;
+        margin-left: 20%;
+    }
+}
+
+     </style>
+  </head>
+  <body>
 {% endblock styles %}
 {% block content %}
+    <p id="demo" style="color: #fff;"></p>
+       <!--<form method="post" action="">
+            {% csrf_token %}
+        {% for i in questionlist %}
+            {{i.round}}<br>
 
-<div class="classOfElements">
-  <h1>Question</h1>
-  <h3>{{question}}</h3>
-  <form method="post">
-    {% csrf_token %}
-    <div class="qstn"><br>
-    <h3>{{question.text}}</h3>
-    </div>
-    <img src="{{question.image.url}}">
-    <label for="response"></label>
-    <textarea rows="10" type="text" name="response" id="response"></textarea>
-    <br><br>
-    <div class="center">
-      <button class="button1" type="submit">Submit</button>
-    </div>
-  </form>
-</div>
+            display image here<br>
+
+            <input type="text" placeholder="answers" name={{i.round}}>
+            <br>
+
+        {% endfor %}
+        <br>
+        <input name="submit" type="submit">
+	</form>-->
+        <form method="post" action="">
+            {% csrf_token %}
+                <div class="form-section">
+                    {% for i in questionlist %}
+                        <label for="name">{{ i.round }}</label>
+                        <label for="name">{{ i.text |linebreaks}}</label>
+                        {% if i.type == 'I' %}
+                            <img style="heigth:300px;width:200px;" src="{{ i.image.url }}">
+                        {% endif %}
+
+                        <div class="msg">
+                            <textarea placeholder="Answer" name={{ i.round }}></textarea>
+                    {% endfor %}
+                    <button name="submit" id="foo" type="submit">Submit</button>
+                    </div>
+                </div>
+
+	    </form>
+
+
+
+
+    <script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("{{time}}").getTime();
+  console.log(countDownDate)
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+    //console.log(now)
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 *60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    document.getElementById("demo").innerHTML =  hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+      $( "#foo" ).trigger( "click" );
+    }
+    console.log(distance)
+
+  }, 1000);
+  </script>
+  </body>
+
 {% endblock %}
